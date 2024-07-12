@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Slider from 'react-slick';
-import { Link } from 'react-router-dom';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import styles from './Banner.module.css';
 import drillingRigImg from '../assets/drilling_rig.jpeg';
 import miniTractorImg from '../assets/minitractorImg.jpeg';
@@ -23,6 +23,9 @@ const images = [
 ];
 
 const Banner = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [sliderRef, setSliderRef] = useState(null);
+
   const settings = {
     dots: true,
     infinite: true,
@@ -35,27 +38,71 @@ const Banner = () => {
     pauseOnHover: true,
     accessibility: true,
     adaptiveHeight: true,
+    beforeChange: (current, next) => setCurrentSlide(next),
   };
+
+  const goToSlide = useCallback((index) => {
+    if (sliderRef) {
+      sliderRef.slickGoTo(index);
+    }
+  }, [sliderRef]);
+
+  const handleKeyDown = useCallback((e, index) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      goToSlide(index);
+    }
+  }, [goToSlide]);
+
+  useEffect(() => {
+    const handleKeyboardNavigation = (e) => {
+      if (e.key === 'ArrowLeft') {
+        sliderRef.slickPrev();
+      } else if (e.key === 'ArrowRight') {
+        sliderRef.slickNext();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyboardNavigation);
+    return () => {
+      document.removeEventListener('keydown', handleKeyboardNavigation);
+    };
+  }, [sliderRef]);
 
   return (
     <div className={styles.banner}>
-      <Slider {...settings} className={styles.slider}>
+      <Slider ref={setSliderRef} {...settings} className={styles.slider}>
         {images.map((image, index) => (
           <div key={index} className={styles.slide}>
             <img src={image.src} alt={image.alt} className={styles.image} />
             <div className={styles.caption}>
               <h2>{image.alt}</h2>
               <p>{image.description}</p>
-              <Link 
-                to={`/produits/${image.alt.toLowerCase().replace(/\s+/g, '-')}`} 
-                className={styles.cta}
-              >
-                En savoir plus
-              </Link>
+              <button className={styles.cta}>En savoir plus</button>
             </div>
           </div>
         ))}
       </Slider>
+      <div className={styles.thumbnails}>
+        {images.map((image, index) => (
+          <button
+            key={index}
+            className={`${styles.thumbnail} ${currentSlide === index ? styles.active : ''}`}
+            onClick={() => goToSlide(index)}
+            onKeyDown={(e) => handleKeyDown(e, index)}
+            aria-label={`Aller à la diapositive ${index + 1}: ${image.alt}`}
+            tabIndex={0}
+          >
+            <img src={image.src} alt={`Miniature ${image.alt}`} />
+          </button>
+        ))}
+      </div>
+      <button className={`${styles.navButton} ${styles.prevButton}`} onClick={() => sliderRef.slickPrev()} aria-label="Diapositive précédente">
+        <ChevronLeft />
+      </button>
+      <button className={`${styles.navButton} ${styles.nextButton}`} onClick={() => sliderRef.slickNext()} aria-label="Diapositive suivante">
+        <ChevronRight />
+      </button>
     </div>
   );
 };

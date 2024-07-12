@@ -1,8 +1,25 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import { Phone, Mail, MapPin, Facebook, Instagram, Twitter, ArrowUpCircle } from 'lucide-react';
 import styles from './Footer.module.css';
-import { Phone, Mail, MapPin, Facebook, Instagram, Twitter } from 'lucide-react';
 
 const Footer = () => {
+  const contactInfo = [
+    { icon: Phone, text: "+221 77 606 29 00 / 77 512 30 76" },
+    { icon: Mail, text: "sogepiafriquesarl@gmail.com" },
+    { icon: MapPin, text: "Dakar (Sénégal) Route de Rufisque km 11, Route de Rufisque Thiaroye sur Mer" }
+  ];
+
+  const socialLinks = [
+    { icon: Facebook, href: "#" },
+    { icon: Instagram, href: "#" },
+    { icon: Twitter, href: "#" }
+  ];
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <footer className={styles.footer}>
       <div className={styles.wave}>
@@ -13,22 +30,35 @@ const Footer = () => {
       <div className={styles.container}>
         <div className={styles.contactInfo}>
           <h3 className={styles.title}>Contactez-nous</h3>
-          <p className={styles.info}><Phone size={18} /> +221 77 606 29 00 / 77 512 30 76</p>
-          <p className={styles.info}><Mail size={18} /> sogepiafriquesarl@gmail.com</p>
-          <p className={styles.info}><MapPin size={18} /> Dakar (Sénégal) Route de Rufisque km 11, Route de Rufisque Thiaroye sur Mer</p>
+          {contactInfo.map((info, index) => (
+            <motion.div key={index} className={styles.info} whileHover={{ scale: 1.05 }}>
+              <info.icon size={20} />
+              <span>{info.text}</span>
+            </motion.div>
+          ))}
         </div>
         <div className={styles.socialLinks}>
           <h3 className={styles.title}>Suivez-nous</h3>
           <div className={styles.socialIcons}>
-            <a href="#" className={styles.socialIcon}><Facebook size={24} /></a>
-            <a href="#" className={styles.socialIcon}><Instagram size={24} /></a>
-            <a href="#" className={styles.socialIcon}><Twitter size={24} /></a>
+            {socialLinks.map((social, index) => (
+              <motion.a key={index} href={social.href} className={styles.socialIcon} whileHover={{ scale: 1.2 }}>
+                <social.icon size={24} />
+              </motion.a>
+            ))}
           </div>
         </div>
       </div>
       <div className={styles.footerBottom}>
-        <p>&copy; 2023 SGPI Afrique S.A.R.L. Tous droits réservés.</p>
+        <p>© 2023 SGPI Afrique S.A.R.L. Tous droits réservés.</p>
       </div>
+      <motion.button 
+        className={styles.scrollToTop} 
+        onClick={scrollToTop}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+      >
+        <ArrowUpCircle size={24} />
+      </motion.button>
     </footer>
   );
 };

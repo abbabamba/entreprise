@@ -1,12 +1,10 @@
-/* Ajout d'un dégradé de couleur pour l'arrière-plan de la page */
 .productsPage {
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 2rem;
+  margin-top: 2rem; /* Ajout de marge supérieure */
 }
 
-/* Création d'un en-tête attrayant */
 .productsHeader {
   display: flex;
   justify-content: space-between;
@@ -15,170 +13,173 @@
 }
 
 .productsHeader h2 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: #333;
 }
 
-/* Bouton du panier avec des styles améliorés */
 .cartButton {
-  padding: 0.5rem 1rem;
-  background-color: #007bff;
+  background-color: #4CAF50;
   color: white;
   border: none;
-  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .cartButton:hover {
-  background-color: #0056b3;
+  background-color: #45a049;
 }
 
-/* Style du panier avec un fond blanc et des ombres */
-.cart {
-  background: white;
-  padding: 1rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 2rem;
-}
-
-/* Style des articles dans le panier */
-.cartItem {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
-.cartItem img {
-  width: 50px;
-  height: 50px;
-  margin-right: 1rem;
-}
-
-.cartItemDetails {
-  flex: 1;
-}
-
-.quantityInput {
-  width: 60px;
-  padding: 0.3rem;
-  margin-left: 0.5rem;
-}
-
-.removeButton {
-  padding: 0.3rem 0.6rem;
-  background-color: #dc3545;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.removeButton:hover {
-  background-color: #c82333;
-}
-
-/* Style du prix total */
-.totalPrice {
-  font-weight: bold;
-  font-size: 1.2rem;
-  text-align: right;
-  margin-top: 1rem;
-}
-
-/* Bouton de commande avec des styles améliorés */
-.orderButton {
-  padding: 0.5rem 1rem;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 100%;
-  text-align: center;
-}
-
-.orderButton:disabled {
-  background-color: #ccc;
-}
-
-.orderButton:hover {
-  background-color: #218838;
-}
-
-/* Formulaire de commande avec un fond blanc et des ombres */
-.orderForm {
-  background: white;
-  padding: 1rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 2rem;
-}
-
-/* Entrées du formulaire */
-.orderForm input, .orderForm textarea, .orderForm select {
-  display: block;
-  width: 100%;
-  padding: 0.5rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-/* Bouton de soumission de commande */
-.submitOrderButton {
-  padding: 0.5rem 1rem;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 100%;
-}
-
-.submitOrderButton:hover {
-  background-color: #0056b3;
-}
-
-/* Liste des produits avec grille et styles améliorés */
 .productList {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 2rem;
 }
 
-/* Style des produits individuels */
 .productItem {
-  background: white;
-  padding: 1rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  transition: transform 0.3s ease-in-out;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .productItem:hover {
   transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .productImage {
   width: 100%;
-  height: 150px;
+  height: 200px;
   object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 1rem;
+}
+
+.productItem h3 {
+  font-size: 1.2rem;
+  margin: 1rem;
+  color: #333;
+}
+
+.productItem p {
+  font-size: 0.9rem;
+  margin: 0 1rem 1rem;
+  color: #666;
 }
 
 .addToCartButton {
-  padding: 0.5rem 1rem;
-  background-color: #007bff;
+  display: block;
+  width: calc(100% - 2rem);
+  margin: 1rem;
+  padding: 0.5rem;
+  background-color: #4CAF50;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
+  font-size: 1rem;
   cursor: pointer;
-  width: 100%;
+  transition: background-color 0.3s ease;
 }
 
 .addToCartButton:hover {
-  background-color: #0056b3;
+  background-color: #45a049;
+}
+
+.productDetail {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 80%;
+  max-height: 80%;
+  overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+  .productsHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cartButton {
+    margin-top: 1rem;
+  }
+
+  .productList {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  .productDetail {
+    max-width: 95%;
+    max-height: 95%;
+  }
+}
+/* Styles existants ... */
+
+/* Styles pour SweetAlert2 */
+.swalContainer {
+  z-index: 9999;
+}
+
+.swalPopup {
+  font-family: 'Arial', sans-serif;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.swalTitle {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.swalContent {
+  font-size: 1rem;
+  color: #666;
+}
+
+.swalConfirmButton {
+  background-color: #4CAF50 !important;
+  color: white !important;
+  border-radius: 4px !important;
+  font-size: 1rem !important;
+  padding: 0.5rem 1.5rem !important;
+  transition: background-color 0.3s ease !important;
+}
+
+.swalConfirmButton:hover {
+  background-color: #45a049 !important;
+}
+
+.swalCancelButton {
+  background-color: #f44336 !important;
+  color: white !important;
+  border-radius: 4px !important;
+  font-size: 1rem !important;
+  padding: 0.5rem 1.5rem !important;
+  transition: background-color 0.3s ease !important;
+}
+
+.swalCancelButton:hover {
+  background-color: #d32f2f !important;
+}
+
+/* Animation pour l'apparition de l'alerte */
+@keyframes swalAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.swalPopup {
+  animation: swalAppear 0.3s ease-out;
 }

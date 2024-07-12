@@ -1,24 +1,22 @@
-:root {
+.footer {
   --primary-color: #6200ea;
   --secondary-color: #03dac5;
   --background-color: #f8f8f8;
   --text-color: #333;
   --hover-bg-color: rgba(98, 0, 234, 0.1);
   --shadow-color: rgba(0, 0, 0, 0.1);
-}
 
-.footer {
   position: relative;
   background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
   color: #fff;
-  padding: 100px 0 20px;
+  padding: 60px 0 20px;
   font-family: 'Arial', sans-serif;
   overflow: hidden;
 }
 
 .wave {
   position: absolute;
-  top: 0;
+  top: -1px;
   left: 0;
   width: 100%;
   overflow: hidden;
@@ -29,7 +27,7 @@
   position: relative;
   display: block;
   width: calc(100% + 1.3px);
-  height: 80px;
+  height: 40px;
 }
 
 .shapeFill {
@@ -47,75 +45,38 @@
 
 .contactInfo, .socialLinks {
   flex: 1;
-  min-width: 300px;
+  min-width: 250px;
   margin-bottom: 20px;
-  transition: transform 0.3s ease;
-}
-
-.contactInfo:hover, .socialLinks:hover {
-  transform: translateY(-5px);
 }
 
 .title {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin-bottom: 15px;
   color: #fff;
   border-bottom: 2px solid #fff;
   display: inline-block;
-  position: relative;
-  overflow: hidden;
-}
-
-.title::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: -100%;
-  width: 100%;
-  height: 2px;
-  background-color: #fff;
-  transition: left 0.3s ease;
-}
-
-.title:hover::after {
-  left: 0;
+  padding-bottom: 5px;
 }
 
 .info {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
-  font-size: 1rem;
-  transition: color 0.3s ease;
-}
-
-.info:hover {
-  color: var(--secondary-color);
+  font-size: 0.9rem;
 }
 
 .info svg {
   margin-right: 10px;
   color: #fff;
-  transition: transform 0.3s ease;
-}
-
-.info:hover svg {
-  transform: scale(1.2);
 }
 
 .socialIcons {
   display: flex;
-  gap: 20px;
+  gap: 15px;
 }
 
 .socialIcon {
   color: #fff;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.socialIcon:hover {
-  color: var(--secondary-color);
-  transform: translateY(-5px);
 }
 
 .footerBottom {
@@ -123,32 +84,37 @@
   margin-top: 20px;
   padding-top: 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.3);
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: #fff;
 }
 
-.footerBottom p {
+.scrollToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--primary-color);
   color: #fff;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.7;
-  }
-  100% {
-    opacity: 1;
-  }
+  border: none;
+  border-radius: 50%;
+  padding: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px var(--shadow-color);
 }
 
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
   }
+  
   .contactInfo, .socialLinks {
     width: 100%;
+  }
+  
+  .footer {
+    padding: 40px 0 20px;
+  }
+  
+  .wave svg {
+    height: 30px;
   }
 }

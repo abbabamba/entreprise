@@ -7,28 +7,39 @@ import Services from './components/Services';
 import Footer from './components/Footer';
 import Products from './pages/Products';
 import Contact from './pages/Contact';
+import Cart from './pages/Cart';
+import { CartProvider } from './contexts/CartContext';
 
 function App() {
   return (
-    <Router>
-      <div>
-        <Header />
-        <main>
-          <Routes>
-            <Route path="/" element={
-              <>
-                <Banner />
-                <About />
-                <Services />
-              </>
-            } />
-            <Route path="/products" element={<Products />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </Router>
+    <CartProvider>
+      <Router>
+        <div>
+          <Header />
+          <main>
+            <Routes>
+              <Route path="/" element={
+                <>
+                  <section id="banner">
+                    <Banner />
+                  </section>
+                  <section id="about">
+                    <About />
+                  </section>
+                  <section id="services">
+                    <Services />
+                  </section>
+                </>
+              } />
+              <Route path="/products" element={<Products />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/cart" element={<Cart />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </Router>
+    </CartProvider>
   );
 }
 

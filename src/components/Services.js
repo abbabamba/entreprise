@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Services.module.css';
+import { motion } from 'framer-motion';
 
 const services = [
   {
@@ -48,17 +49,37 @@ const Services = () => {
   return (
     <section className={styles.services}>
       <div className={styles.container}>
-        <h2 className={styles.title}>Nos Services</h2>
+        <motion.h2 
+          className={styles.title}
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          Nos Services
+        </motion.h2>
         <div className={styles.grid}>
           {services.map((service, index) => (
-            <div key={index} className={styles.serviceCard}>
+            <motion.div 
+              key={index} 
+              className={styles.serviceCard}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
               <div className={styles.icon}>{service.icon}</div>
               <h3 className={styles.serviceTitle}>{service.title}</h3>
               <p className={styles.serviceDescription}>{service.description}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
-        <button className={styles.cta}>Contactez-nous</button>
+        <motion.button 
+          className={styles.cta}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: services.length * 0.1 }}
+        >
+          Contactez-nous
+        </motion.button>
       </div>
     </section>
   );

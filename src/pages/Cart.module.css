@@ -1,0 +1,245 @@
+.cartPage {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.cartTitle {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2c3e50;
+  font-size: 2.5em;
+  font-weight: 700;
+}
+
+.emptyCart {
+  text-align: center;
+  color: #7f8c8d;
+  font-size: 1.2em;
+}
+
+.cartContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.cartItems {
+  margin-bottom: 30px;
+}
+
+.cartItem {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  transition: box-shadow 0.3s ease;
+}
+
+.cartItem:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cartItemImage {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+.cartItemDetails {
+  flex-grow: 1;
+}
+
+.cartItemDetails h4 {
+  margin: 0 0 10px;
+  color: #2c3e50;
+  font-size: 1.2em;
+}
+
+.itemPrice {
+  color: #e74c3c;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.quantityControl {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.quantityButton {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  width: 30px;
+  height: 30px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.quantityButton:hover {
+  background-color: #2980b9;
+}
+
+.quantityInput {
+  width: 50px;
+  height: 30px;
+  text-align: center;
+  margin: 0 10px;
+  border: 1px solid #bdc3c7;
+  border-radius: 5px;
+}
+
+.removeButton {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  width: 30px;
+  height: 30px;
+  font-size: 1.2em;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.removeButton:hover {
+  background-color: #c0392b;
+}
+
+.cartSummary {
+  text-align: right;
+}
+
+.totalPrice {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.orderButton {
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.1em;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.orderButton:hover:not(:disabled) {
+  background-color: #2ecc71;
+}
+
+.orderButton:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+}
+
+.orderFormOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.orderForm {
+  background-color: white;
+  padding: 40px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 500px;
+}
+
+.orderForm h3 {
+  margin-bottom: 20px;
+  color: #2c3e50;
+  font-size: 1.5em;
+}
+
+.orderForm input,
+.orderForm textarea,
+.orderForm select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #bdc3c7;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.formButtons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.cancelButton,
+.submitButton {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1em;
+}
+
+.cancelButton {
+  background-color: #95a5a6;
+  color: white;
+}
+
+.cancelButton:hover {
+  background-color: #7f8c8d;
+}
+
+.submitButton {
+  background-color: #27ae60;
+  color: white;
+}
+
+.submitButton:hover {
+  background-color: #2ecc71;
+}
+
+@media (max-width: 768px) {
+  .cartPage {
+    padding: 20px 10px;
+  }
+
+  .cartItem {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cartItemImage {
+    width: 100%;
+    height: 200px;
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+
+  .removeButton {
+    align-self: flex-end;
+    margin-top: -40px;
+  }
+
+  .orderForm {
+    padding: 20px;
+  }
+}
