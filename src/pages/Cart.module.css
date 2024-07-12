@@ -1,6 +1,8 @@
 .cartPage {
   max-width: 1000px;
   margin: 0 auto;
+  margin-top: 5rem; /* Ajout de marge supérieure */
+
   padding: 40px 20px;
   background-color: #ffffff;
   border-radius: 20px;

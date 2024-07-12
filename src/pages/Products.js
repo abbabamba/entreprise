@@ -13,6 +13,11 @@ import riceMillingMachineImg from '../assets/rice_milling_machine.jpeg';
 import tractorsImg from '../assets/tractors.jpeg';
 import waterPumpingSystemImg from '../assets/water_pumping_system.jpeg';
 
+const convertEuroToCFA = (priceInEuro) => {
+  const conversionRate = 655.957;
+  return priceInEuro * conversionRate;
+};
+
 const products = [
   {
     title: "Forage et mini-forages solaires",
@@ -28,7 +33,7 @@ const products = [
     image: miniTractorImg,
     features: ["Compact et puissant", "Facile à manœuvrer", "Efficacité accrue"],
     advantages: ["Augmentation de la productivité", "Réduction des efforts manuels", "Maintenance facile"],
-    price: "À partir de 3000€",
+    price: `À partir de ${convertEuroToCFA(3000).toFixed(0)} CFA`,
   },
   {
     title: "Motoculteurs",
@@ -36,7 +41,7 @@ const products = [
     image: motorCultivatorImg,
     features: ["Polyvalent", "Facilité d'utilisation", "Robuste"],
     advantages: ["Préparation efficace du sol", "Réduction des efforts physiques", "Longue durée de vie"],
-    price: "À partir de 800€",
+    price: `À partir de ${convertEuroToCFA(800).toFixed(0)} CFA`,
   },
   {
     title: "Pulvérisateurs",
@@ -44,7 +49,7 @@ const products = [
     image: pulverisateurImg,
     features: ["Grande capacité", "Uniformité de pulvérisation", "Facilité de transport"],
     advantages: ["Augmentation des rendements", "Réduction de la consommation de produits chimiques", "Durabilité"],
-    price: "À partir de 500€",
+    price: `À partir de ${convertEuroToCFA(500).toFixed(0)} CFA`,
   },
   {
     title: "Machines à moudre le riz",
@@ -52,7 +57,7 @@ const products = [
     image: riceMillingMachineImg,
     features: ["Grande capacité", "Faible consommation d'énergie", "Facilité d'utilisation"],
     advantages: ["Amélioration de la qualité du riz", "Réduction des pertes", "Productivité accrue"],
-    price: "À partir de 1500€",
+    price: `À partir de ${convertEuroToCFA(1500).toFixed(0)} CFA`,
   },
   {
     title: "Tracteurs",
@@ -60,7 +65,7 @@ const products = [
     image: tractorsImg,
     features: ["Haute puissance", "Confort de conduite", "Technologie moderne"],
     advantages: ["Efficacité accrue", "Réduction des temps de travail", "Longue durée de vie"],
-    price: "À partir de 5000€",
+    price: `À partir de ${convertEuroToCFA(5000).toFixed(0)} CFA`,
   },
   {
     title: "Systèmes de pompage d'eau",

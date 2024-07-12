@@ -51,14 +51,7 @@ const Footer = () => {
       <div className={styles.footerBottom}>
         <p>© 2023 SGPI Afrique S.A.R.L. Tous droits réservés.</p>
       </div>
-      <motion.button 
-        className={styles.scrollToTop} 
-        onClick={scrollToTop}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-      >
-        <ArrowUpCircle size={24} />
-      </motion.button>
+     
     </footer>
   );
 };

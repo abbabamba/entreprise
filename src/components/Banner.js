@@ -78,7 +78,6 @@ const Banner = () => {
             <div className={styles.caption}>
               <h2>{image.alt}</h2>
               <p>{image.description}</p>
-              <button className={styles.cta}>En savoir plus</button>
             </div>
           </div>
         ))}

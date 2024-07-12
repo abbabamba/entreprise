@@ -141,7 +141,7 @@ const Cart = () => {
             ))}
           </div>
           <div className={styles.cartSummary}>
-            <p className={styles.totalPrice}>Total: {getTotalPrice().toFixed(2)}€</p>
+            <p className={styles.totalPrice}>Total: {getTotalPrice().toFixed(2)}CFA</p>
             <button 
               onClick={() => setShowOrderForm(true)} 
               className={styles.orderButton}
