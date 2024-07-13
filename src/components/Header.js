@@ -47,10 +47,9 @@ const Header = () => {
         <nav className={`${styles.nav} ${isMenuOpen ? styles.active : ''}`}>
           <ul>
             <li><Link to="/" className={`${styles.navLink} ${location.pathname === '/' ? styles.active : ''}`} onClick={() => scrollToSection('banner')}>Accueil</Link></li>
+            <li><Link to="/products" className={`${styles.navLink} ${location.pathname === '/products' ? styles.active : ''}`}>Produits</Link></li>
             <li><Link to="/" className={styles.navLink} onClick={() => scrollToSection('about')}>À propos</Link></li>
             <li><Link to="/" className={styles.navLink} onClick={() => scrollToSection('services')}>Services</Link></li>
-            <li><Link to="/products" className={`${styles.navLink} ${location.pathname === '/products' ? styles.active : ''}`}>Produits</Link></li>
-            <li><Link to="/contact" className={`${styles.navLink} ${location.pathname === '/contact' ? styles.active : ''}`}>Contact</Link></li>
           </ul>
         </nav>
         <div className={styles.iconContainer}>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Facebook, Instagram, Twitter, ArrowUpCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
 import styles from './Footer.module.css';
 
 const Footer = () => {
@@ -11,14 +11,11 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: "#" },
-    { icon: Instagram, href: "#" },
-    { icon: Twitter, href: "#" }
+    { icon: Facebook, href: "https://www.facebook.com/share/WLbdrA6EssHd35kk/?mibextid=LQQJ4d" },
+    { icon: Instagram, href: "https://www.instagram.com/sogepi_afrique_sarl?igsh=YXk3YXp0OXA3MDlz&utm_source=qr" },
   ];
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+ 
 
   return (
     <footer className={styles.footer}>
@@ -49,7 +46,7 @@ const Footer = () => {
         </div>
       </div>
       <div className={styles.footerBottom}>
-        <p>© 2023 SGPI Afrique S.A.R.L. Tous droits réservés.</p>
+        <p>© 2024 SGPI Afrique S.A.R.L. Tous droits réservés.</p>
       </div>
      
     </footer>

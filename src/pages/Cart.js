@@ -4,11 +4,11 @@ import styles from './Cart.module.css';
 import Swal from 'sweetalert2';
 
 const Cart = () => {
-  const { cart, setCart, removeFromCart, updateQuantity } = useContext(CartContext);
+  const { cart, setCart, removeFromCart, updateQuantity, getTotalPrice } = useContext(CartContext);
   const [showOrderForm, setShowOrderForm] = useState(false);
   const [orderDetails, setOrderDetails] = useState({
     name: '',
-    email: '',
+    phone: '',
     address: '',
     paymentMethod: 'cart_bancaire',
   });
@@ -16,13 +16,6 @@ const Cart = () => {
   useEffect(() => {
     console.log("Cart items:", cart);
   }, [cart]);
-
-  const getTotalPrice = () => {
-    return cart.reduce((total, item) => {
-      const price = typeof item.price === 'string' ? parseFloat(item.price.replace(/[^0-9.-]+/g, '')) : item.price;
-      return total + (price * item.quantity || 0);
-    }, 0);
-  };
 
   const handleOrderSubmit = async (e) => {
     e.preventDefault();
@@ -40,7 +33,7 @@ const Cart = () => {
     const subject = "Nouvelle commande";
     const emailMessage = `
       Nom : ${orderDetails.name}
-      Email : ${orderDetails.email}
+      Téléphone : ${orderDetails.phone}
       Adresse : ${orderDetails.address}
       Méthode de paiement : ${orderDetails.paymentMethod}
 
@@ -74,7 +67,7 @@ const Cart = () => {
         setShowOrderForm(false);
         setOrderDetails({
           name: '',
-          email: '',
+          phone: '',
           address: '',
           paymentMethod: 'cart_bancaire',
         });
@@ -141,7 +134,7 @@ const Cart = () => {
             ))}
           </div>
           <div className={styles.cartSummary}>
-            <p className={styles.totalPrice}>Total: {getTotalPrice().toFixed(2)}CFA</p>
+            <p className={styles.totalPrice}>Total: {getTotalPrice().toFixed(2)} CFA</p>
             <button 
               onClick={() => setShowOrderForm(true)} 
               className={styles.orderButton}
@@ -166,10 +159,10 @@ const Cart = () => {
                 required
               />
               <input 
-                type="email" 
-                placeholder="Email"
-                value={orderDetails.email}
-                onChange={(e) => setOrderDetails({ ...orderDetails, email: e.target.value })}
+                type="tel" 
+                placeholder="Téléphone"
+                value={orderDetails.phone}
+                onChange={(e) => setOrderDetails({ ...orderDetails, phone: e.target.value })}
                 required
               />
               <textarea 

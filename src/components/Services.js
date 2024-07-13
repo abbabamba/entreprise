@@ -72,14 +72,7 @@ const Services = () => {
             </motion.div>
           ))}
         </div>
-        <motion.button 
-          className={styles.cta}
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: services.length * 0.1 }}
-        >
-          Contactez-nous
-        </motion.button>
+       
       </div>
     </section>
   );

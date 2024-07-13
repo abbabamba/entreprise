@@ -25,7 +25,7 @@ const products = [
     image: drillingRigImg,
     features: ["Technologie solaire", "Installation rapide", "Durabilité"],
     advantages: ["Accès à l'eau potable", "Énergie renouvelable", "Coût d'exploitation réduit"],
-    price: "Contactez-nous pour un devis",
+    price:`À partir de ${convertEuroToCFA(3000).toFixed(0)} CFA`,
   },
   {
     title: "Mini-tracteurs",

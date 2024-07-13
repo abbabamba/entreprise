@@ -1,5 +1,4 @@
 /* Styles précédents conservés */
-
 /* Footer styles */
 .footer {
   --primary-color: #6200ea;
@@ -8,7 +7,6 @@
   --text-color: #fff;
   --hover-bg-color: rgba(255, 255, 255, 0.1);
   --shadow-color: rgba(0, 0, 0, 0.1);
-  
   position: relative;
   background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
   color: var(--text-color);
@@ -64,35 +62,51 @@
 .info {
   display: flex;
   align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   font-size: 0.9rem;
 }
 
 .info svg {
   margin-right: 10px;
   color: var(--text-color);
+  flex-shrink: 0;
 }
 
 .socialIcons {
   display: flex;
-  gap: 12px;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
 .socialIcon {
   color: var(--text-color);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  font-size: 1.5rem;
+  padding: 8px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.socialIcon:hover {
-  transform: scale(1.1);
+.socialIcon:hover, .socialIcon:focus {
+  transform: translateY(-5px) rotate(5deg);
+  color: var(--icon-hover-color);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.socialIcon:active {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .footerBottom {
   text-align: center;
-  margin-top: 20px;
-  padding-top: 15px;
+  margin-top: 30px;
+  padding-top: 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.3);
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: var(--text-color);
 }
 
@@ -104,14 +118,15 @@
   color: var(--text-color);
   border: none;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   box-shadow: 0 2px 5px var(--shadow-color);
   transition: background-color 0.3s ease, transform 0.3s ease;
+  font-size: 1.5rem;
 }
 
 .scrollToTop:hover {
@@ -129,11 +144,11 @@
   }
   
   .footer {
-    padding: 30px 0 15px;
+    padding: 40px 0 20px;
   }
   
   .wave svg {
-    height: 20px;
+    height: 25px;
   }
   
   .title {
@@ -141,13 +156,17 @@
   }
   
   .info, .socialIcons {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
+  }
+  
+  .socialIcons {
+    justify-content: center;
   }
 }
 
 @media (max-width: 480px) {
   .footer {
-    padding: 25px 0 10px;
+    padding: 30px 0 15px;
   }
   
   .container {
@@ -159,28 +178,36 @@
   }
   
   .info, .socialIcons {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
   }
   
   .scrollToTop {
-    width: 35px;
-    height: 35px;
+    width: 45px;
+    height: 45px;
     bottom: 15px;
     right: 15px;
+    font-size: 1.3rem;
+  }
+  
+  .info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .info svg {
+    margin-bottom: 5px;
   }
 }
 
 /* Amélioration de l'accessibilité */
 @media (prefers-reduced-motion: reduce) {
-  .socialIcon:hover {
-    transform: none;
-  }
-  
-  .scrollToTop {
-    transition: none;
-  }
-  
+  .socialIcon,
+  .socialIcon:hover,
+  .socialIcon:focus,
+  .socialIcon:active,
+  .scrollToTop,
   .scrollToTop:hover {
+    transition: none;
     transform: none;
   }
 }
@@ -195,5 +222,10 @@
   
   .socialIcon, .info svg {
     color: #ffffff;
+  }
+  
+  .scrollToTop {
+    background: #ffffff;
+    color: #000000;
   }
 }
