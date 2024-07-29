@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ShoppingCart } from 'lucide-react';
-import { CartContext } from '../contexts/CartContext';
+import { Menu, X } from 'lucide-react';
 import logo1 from '../assets/logo1.jpeg';
 import logo2 from '../assets/logo2.jpeg';
 import styles from './Header.module.css';
@@ -10,7 +9,6 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const { cart } = useContext(CartContext);
 
   useEffect(() => {
     setIsMenuOpen(false);
@@ -50,13 +48,11 @@ const Header = () => {
             <li><Link to="/products" className={`${styles.navLink} ${location.pathname === '/products' ? styles.active : ''}`}>Produits</Link></li>
             <li><Link to="/" className={styles.navLink} onClick={() => scrollToSection('about')}>À propos</Link></li>
             <li><Link to="/" className={styles.navLink} onClick={() => scrollToSection('services')}>Services</Link></li>
+            <li><Link to="/" className={styles.navLink} onClick={() => scrollToSection('contacts')}>Contact</Link></li>
           </ul>
         </nav>
         <div className={styles.iconContainer}>
-          <Link to="/cart" className={styles.cartIcon}>
-            <ShoppingCart size={24} />
-            {cart.length > 0 && <span className={styles.cartCount}>{cart.length}</span>}
-          </Link>
+         
           <button
             className={styles.menuToggle}
             onClick={toggleMenu}

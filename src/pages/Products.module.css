@@ -1,53 +1,90 @@
+/* Base styles */
 .productsPage {
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-  margin-top: 2rem; /* Ajout de marge supérieure */
+  margin: 2rem auto;
+  padding: 1rem;
 }
 
 .productsHeader {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2rem;
 }
 
 .productsHeader h2 {
+  font-family: 'Montserrat', sans-serif;
   font-size: 2.5rem;
+  font-weight: 700;
   color: #333;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  padding-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: linear-gradient(to right, #4CAF50, #45a049);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.cartButton {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
+.productsHeader h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(to right, #4CAF50, #45a049);
+  border-radius: 2px;
+}
+
+/* Search and category selection */
+.searchInput,
+.categorySelect {
+  font-family: 'Open Sans', sans-serif;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0.75rem;
   font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  flex-grow: 1;
 }
 
-.cartButton:hover {
-  background-color: #45a049;
+.searchInput:focus,
+.categorySelect:focus {
+  border-color: #4CAF50;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
 }
 
+/* Product grid */
 .productList {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 2rem;
 }
 
+/* Product cards */
 .productItem {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
 }
 
 .productItem:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .productImage {
@@ -57,57 +94,79 @@
 }
 
 .productItem h3 {
-  font-size: 1.2rem;
-  margin: 1rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.25rem;
   color: #333;
+  margin: 1rem;
+  flex-grow: 1;
 }
 
 .productItem p {
-  font-size: 0.9rem;
-  margin: 0 1rem 1rem;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.875rem;
   color: #666;
+  margin: 0 1rem 1rem;
 }
 
+.productCategory {
+  font-size: 0.75rem;
+  color: #4CAF50;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 1rem;
+}
+
+/* Buttons */
+.cartButton,
 .addToCartButton {
-  display: block;
-  width: calc(100% - 2rem);
-  margin: 1rem;
-  padding: 0.5rem;
   background-color: #4CAF50;
   color: white;
   border: none;
-  border-radius: 4px;
+  padding: 0.75rem 1.25rem;
   font-size: 1rem;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: bold;
 }
 
+.cartButton:hover,
 .addToCartButton:hover {
   background-color: #45a049;
+  transform: translateY(-2px);
 }
 
+.cartButton:active,
+.addToCartButton:active {
+  transform: translateY(0);
+}
+
+/* Product detail */
 .productDetail {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
+  background-color: #fff;
   padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
   max-width: 80%;
-  max-height: 80%;
+  max-height: 80vh;
   overflow-y: auto;
+  margin: 2rem auto;
 }
 
+/* Responsive design */
 @media (max-width: 768px) {
   .productsHeader {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
   }
 
+  .searchInput,
+  .categorySelect,
   .cartButton {
-    margin-top: 1rem;
+    width: 100%;
+    margin-right: 0;
   }
 
   .productList {
@@ -116,59 +175,59 @@
 
   .productDetail {
     max-width: 95%;
-    max-height: 95%;
+    padding: 1.5rem;
+  }
+  .productsHeader h2 {
+    font-size: 2rem;
+    letter-spacing: 1px;
+  }
+
+  .productsHeader h2::after {
+    width: 80px;
   }
 }
-/* Styles existants ... */
 
-/* Styles pour SweetAlert2 */
-.swalContainer {
-  z-index: 9999;
-}
-
-.swalPopup {
+/* SweetAlert2 customization */
+:global(.swal2-popup) {
   font-family: 'Arial', sans-serif;
   border-radius: 10px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
-.swalTitle {
+:global(.swal2-title) {
   font-size: 1.5rem;
   color: #333;
 }
 
-.swalContent {
+:global(.swal2-content) {
   font-size: 1rem;
   color: #666;
 }
 
-.swalConfirmButton {
-  background-color: #4CAF50 !important;
-  color: white !important;
+:global(.swal2-confirm),
+:global(.swal2-cancel) {
   border-radius: 4px !important;
   font-size: 1rem !important;
   padding: 0.5rem 1.5rem !important;
   transition: background-color 0.3s ease !important;
 }
 
-.swalConfirmButton:hover {
+:global(.swal2-confirm) {
+  background-color: #4CAF50 !important;
+}
+
+:global(.swal2-confirm:hover) {
   background-color: #45a049 !important;
 }
 
-.swalCancelButton {
+:global(.swal2-cancel) {
   background-color: #f44336 !important;
-  color: white !important;
-  border-radius: 4px !important;
-  font-size: 1rem !important;
-  padding: 0.5rem 1.5rem !important;
-  transition: background-color 0.3s ease !important;
 }
 
-.swalCancelButton:hover {
+:global(.swal2-cancel:hover) {
   background-color: #d32f2f !important;
 }
 
-/* Animation pour l'apparition de l'alerte */
 @keyframes swalAppear {
   from {
     opacity: 0;
@@ -180,6 +239,6 @@
   }
 }
 
-.swalPopup {
+:global(.swal2-popup) {
   animation: swalAppear 0.3s ease-out;
 }
