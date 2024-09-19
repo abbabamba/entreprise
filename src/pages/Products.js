@@ -7,6 +7,15 @@ import drillingRigImg from '../assets/drilling_rig.jpeg';
 import miniTractorImg from '../assets/minitractorImg.jpeg';
 import motorCultivatorImg from '../assets/motorCultivator.jpeg';
 import pulverisateurImg from '../assets/Pulvérisateur.jpeg';
+import silentOpenGeneratorImg from '../assets/unknow.jpeg';
+import generatorSetImg from '../assets/Generator_set.jpeg';
+import moulinMilImg from '../assets/Moulin_mil.jpeg';
+import elevatorRegulatorImg from '../assets/Composants_élévateu_ régulateur.jpeg';
+import submersiblePumpImg from '../assets/submersiblePump.jpeg';
+import ms285Img from '../assets/ms285.png';
+import deltaForageImg from '../assets/Delta_Forage.jpeg';
+import tunalarMotorImg from '../assets/Tunalar_Pancar_Motor.jpeg';
+import farmDiscHarrowImg from '../assets/fermeHerse.jpeg';
 import riceMillingMachineImg from '../assets/rice_milling_machine.jpeg';
 import tractorsImg from '../assets/tractors.jpeg';
 import waterPumpingSystemImg from '../assets/water_pumping_system.jpeg';
@@ -16,6 +25,8 @@ import panneauSolaireImg from '../assets/panneau_solaire.jpg';
 import moulinCerealeImg from '../assets/moulin_cereale.jpeg';
 import decortiqueuseRizImg from '../assets/decortiqueuse_riz.jpg';
 import groupeElectrogeneImg from '../assets/groupe_electrogene.jpg';
+import productDemoVideo from '../assets/product_demo.mp4';
+
 
 const products = [
   {
@@ -32,6 +43,78 @@ const products = [
     image: miniTractorImg,
     features: ["Compact et puissant", "Facile à manœuvrer", "Efficacité accrue"],
     advantages: ["Augmentation de la productivité", "Réduction des efforts manuels", "Maintenance facile"],
+    price: "Contactez-nous pour un devis",
+  },
+  {
+    title: "Silent Open Generator",
+    description: "Générateur silencieux pour des applications résidentielles ou industrielles.",
+    image: silentOpenGeneratorImg,
+    features: ["Silencieux", "Faible consommation", "Haute puissance"],
+    advantages: ["Économie d'énergie", "Nuisance sonore réduite", "Longue durée de vie"],
+    price: "Contactez-nous pour un devis",
+  },
+  {
+    title: "Manufacturer of Generator Set",
+    description: "Générateur robuste et fiable pour diverses applications.",
+    image: generatorSetImg,
+    features: ["Fiable", "Efficace", "Facile à entretenir"],
+    advantages: ["Forte puissance", "Adapté à différentes industries", "Durabilité"],
+    price: "Contactez-nous pour un devis",
+  },
+  {
+    title: "Moulin à mil",
+    description: "Machine de transformation du mil pour les exploitations agricoles.",
+    image: moulinMilImg,
+    features: ["Efficace", "Robuste", "Facilité d'utilisation"],
+    advantages: ["Transformation rapide", "Réduction de la main-d'œuvre", "Résistant à l'usure"],
+    price: "Contactez-nous pour un devis",
+  },
+  {
+    title: "Composants de sécurité de l′élévateur - Régulateur de survitesse",
+    description: "Régulateur de vitesse pour élévateurs professionnels, garantissant la sécurité.",
+    image: elevatorRegulatorImg,
+    features: ["Sécurité accrue", "Installation facile", "Normes professionnelles"],
+    advantages: ["Protection contre les excès de vitesse", "Durabilité", "Fiabilité"],
+    price: "Contactez-nous pour un devis",
+  },
+  {
+    title: "Pompe submersible pour puits 4SS4/32",
+    description: "Pompe submersible puissante pour l'extraction d'eau.",
+    image: submersiblePumpImg,
+    features: ["Puissance de 3kW", "Sortie 1 1/4 pouces", "380V"],
+    advantages: ["Extraction d'eau rapide", "Énergie optimisée", "Haute performance"],
+    price: "Contactez-nous pour un devis",
+  },
+  {
+    title: "MS 285 Classic",
+    description: "Tracteur classique offrant de hautes performances pour l'agriculture.",
+    image: ms285Img,
+    features: ["Robuste", "Facile à manœuvrer", "Puissance élevée"],
+    advantages: ["Augmentation de la productivité", "Durabilité", "Maintenance facile"],
+    price: "Contactez-nous pour un devis",
+  },
+  {
+    title: "Delta Forage",
+    description: "Matériel de forage de haute qualité pour exploitation agricole.",
+    image: deltaForageImg,
+    features: ["Technologie avancée", "Efficacité accrue", "Robuste"],
+    advantages: ["Durabilité", "Facilité d'utilisation", "Performances élevées"],
+    price: "Contactez-nous pour un devis",
+  },
+  {
+    title: "Tunalar Pancar Motor",
+    description: "Moteur spécialisé pour les applications agricoles.",
+    image: tunalarMotorImg,
+    features: ["Fiabilité", "Faible consommation", "Puissant"],
+    advantages: ["Longue durée de vie", "Coût d'exploitation réduit", "Maintenance aisée"],
+    price: "Contactez-nous pour un devis",
+  },
+  {
+    title: "Tracteur de ferme herse à disques",
+    description: "Herse à disques pour le labourage des champs agricoles.",
+    image: farmDiscHarrowImg,
+    features: ["Disques robustes", "Facilité d'attelage", "Labourage efficace"],
+    advantages: ["Préparation du sol optimale", "Réduction de l'effort", "Durée de vie prolongée"],
     price: "Contactez-nous pour un devis",
   },
   {
@@ -174,7 +257,17 @@ const Products = () => {
           ))}
         </select>
       </div>
+  
+      {/* Ajouter la vidéo ici, avant la liste des produits */}
+      <div className={styles.videoContainer}>
+  <video className={styles.productVideo} controls>
+    <source src={productDemoVideo} type="video/mp4" />
+    Votre navigateur ne supporte pas la vidéo.
+  </video>
+</div>
+  
 
+  
       {selectedProduct ? (
         <ProductDetail
           {...selectedProduct}
@@ -195,6 +288,7 @@ const Products = () => {
       )}
     </div>
   );
+  
 };
 
 export default Products;
